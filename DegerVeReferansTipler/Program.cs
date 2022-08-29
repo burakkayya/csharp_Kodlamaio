@@ -17,6 +17,8 @@ namespace DegerVeReferansTipler
 
 
             Console.WriteLine(dizi[0]);
+
+
         }
     }
 }
