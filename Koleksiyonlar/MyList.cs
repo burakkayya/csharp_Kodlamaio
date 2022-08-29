@@ -22,5 +22,14 @@ namespace Koleksiyonlar
             }
             items[items.Length - 1] = item;
         }
+        public int Length
+        {
+            get { return items.Length; }
+        }
+
+        public T[] Items
+        {
+            get { return items; }
+        }
     }
 }
