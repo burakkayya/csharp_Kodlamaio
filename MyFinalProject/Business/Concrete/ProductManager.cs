@@ -32,7 +32,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Product>> GetAll()
         {
-            if (DateTime.Now.Hour == 22)
+            if (DateTime.Now.Hour == 17)
             {
                 return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
             }
@@ -41,12 +41,12 @@ namespace Business.Concrete
 
         public IDataResult<List<Product>> GetAllByCategoryId(int id)
         {
-            return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.CategoryID == id));
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.CategoryId == id));
         }
 
         public IDataResult<Product> GetById(int productId)
         {
-            return new SuccessDataResult<Product>(_productDal.Get(p => p.ProductID == productId));
+            return new SuccessDataResult<Product>(_productDal.Get(p => p.ProductId == productId));
         }
 
         public IDataResult<List<Product>> GetByUnitPrice(decimal min, decimal max)
@@ -56,10 +56,11 @@ namespace Business.Concrete
 
         public IDataResult<List<ProductDetailDto>> GetProductDetails()
         {
-            if (DateTime.Now.Hour == 17)
-            {
-                return new ErrorDataResult<List<ProductDetailDto>>(Messages.MaintenanceTime);
-            }
+            //CTRL-K + CTRL C Comment yapar  CTRL-K + CTRL-U Uncomment yapar
+            //if (DateTime.Now.Hour == 17)
+            //{
+            //    return new ErrorDataResult<List<ProductDetailDto>>(Messages.MaintenanceTime);
+            //}
 
             return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetProductDetails());
         }
